@@ -24,5 +24,5 @@ CREATE TABLE  `sale` (
     `quantity_purchased` INT,
     `sale_date` DATE,
     `total_sale_amount` DECIMAL(10, 2),
-    PRIMARY KEY (`sale_id`),
+    PRIMARY KEY (`sale_id`)
 );
