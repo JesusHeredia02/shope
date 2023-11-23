@@ -28,7 +28,7 @@ export const getProducts = async (req, res) => {
     res.json(rows);
   } catch (error) {
     return res.status(500).json({
-      message: "Something went wrong. Please check again.",
+      message: "Something went wrong. Please check again." + error
     });
   }
 };
