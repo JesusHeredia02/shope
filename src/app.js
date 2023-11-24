@@ -3,7 +3,7 @@ import routerproductos from "./routes/products.routes.js";
 import customerRouter from "./routes/customer.routes.js";
 import saleRouter from "./routes/sale.routes.js";
 import './config.js'
-import cors from cors
+import cors from 'cors'
     
 const app = express();
 
