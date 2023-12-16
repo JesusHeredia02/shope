@@ -28,10 +28,30 @@ export const getCustomers = async (req, res) => {
     res.json(rows);
   } catch (error) {
     return res.status(500).json({
-      message: "Something went wrong. Please check again.",
+      message: "Something went wrong. Please check again." + error,
     });
   }
 };
+
+export const getCustomerByEmailAndPhone = async (req, res) => {
+  const { phone, email } = req.body;
+  console.log(phone, email);
+  try {
+    const [rows] = await pool.query('SELECT * FROM `customer` WHERE `phone`=? AND `email`=?', [phone, email]);
+
+    // Verifica si hay resultados
+    if (rows.length > 0) {
+      res.status(200).json(rows);
+    } else {
+      res.status(404).json({ message: 'Customer not found' });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      message: 'Something went wrong. Please check again.' + error,
+    });
+  }
+};
+
 
 export const getCustomer = async (req, res) => {
   try {
